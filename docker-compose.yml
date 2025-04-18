@@ -1,0 +1,10 @@
+services:
+  ddns:
+    build: .
+    network_mode: host
+    container_name: cf-ddns
+    env_file:
+      - ./.env
+    volumes:
+      - ./cf-ddns.sh:/app/cf-ddns.sh:ro
+    restart: unless-stopped
